@@ -32,6 +32,11 @@ $router->group(['prefix' => 'api/v1/testing', 'middleware' => 'auth'], function(
 $router->group(['prefix' => 'api/v1/customers','middleware' => 'auth'], function() use ($router){
     $router->get('/', ['uses' => 'CustomerController@index']);
 });
+
+$router->group(['prefix' => 'api/v1/products','middleware' => 'auth'], function() use ($router){
+    $router->get('/', ['uses' => 'ProductController@index']);
+});
+
 // $router->group(['prefix' => 'api/v1/product', 'middleware' => 'auth'], function() use ($router){
 // 	$router->get('/', ['uses' => 'ProductController@index']);
 // 	$router->post('/add', ['uses' => 'ProductController@store']);

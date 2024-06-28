@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class ProductSeeder extends Seeder
 {
@@ -12,6 +13,12 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $timstamp = \Carbon\Carbon::now()->toDateString();
+        DB::table('products')->insert([
+            'name' => 'PODS OXVA',
+            'price' => '100000',
+            'created_at' => $timstamp,
+            'updated_at' => $timstamp
+        ]);
     }
 }

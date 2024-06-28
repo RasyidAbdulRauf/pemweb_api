@@ -14,7 +14,23 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $data = Product::all();
+        if ($data->isEmpty()) {
+            return response()->json(
+                [
+                    'success' => false,
+                    'message' => 'Products not found',
+                ]
+            );
+        } else {
+            return response()->json(
+                [
+                    'success' => true,
+                    'message' => 'Successfully retrieved data',
+                    'data' => $data,
+                ]
+            );
+        }
     }
 
     /**
