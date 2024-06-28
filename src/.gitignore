@@ -1,0 +1,9 @@
+/vendor
+/.idea
+Homestead.json
+Homestead.yaml
+.env
+.phpunit.result.cache
+/db/data/ibdata1
+/db/data/ib_logfile0
+/db/data/ib_logfile1
