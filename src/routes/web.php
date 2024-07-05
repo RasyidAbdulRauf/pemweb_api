@@ -37,6 +37,19 @@ $router->group(['prefix' => 'api/v1/products','middleware' => 'auth'], function(
     $router->get('/', ['uses' => 'ProductController@index']);
 });
 
+$router->group(['prefix' => 'api/v1/orders','middleware' => 'auth'], function() use ($router){
+    $router->get('/', ['uses' => 'OrderController@index']);
+});
+
+$router->group(['prefix' => 'api/v1/orderitems', 'middleware' => 'auth'], function() use ($router) {
+    $router->get('/', ['uses' => 'OrderItemController@index']);
+    $router->post('/', ['uses' => 'OrderItemController@store']);
+    $router->get('/{id}', ['uses' => 'OrderItemController@show']);
+    $router->put('/{id}', ['uses' => 'OrderItemController@update']);
+    $router->delete('/{id}', ['uses' => 'OrderItemController@destroy']);
+});
+
+
 // $router->group(['prefix' => 'api/v1/product', 'middleware' => 'auth'], function() use ($router){
 // 	$router->get('/', ['uses' => 'ProductController@index']);
 // 	$router->post('/add', ['uses' => 'ProductController@store']);
